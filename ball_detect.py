@@ -3,18 +3,18 @@ import cv2
 
 # HSV color thresholds for RED
 THRESHOLD_LOW_R1 = (0, 70, 50)
-THRESHOLD_HIGH_R1 = (5, 255, 255)
+THRESHOLD_HIGH_R1 = (4, 255, 255)
 
 # HSV color thresholds for RED
-THRESHOLD_LOW_R2 = (170, 70, 50)
-THRESHOLD_HIGH_R2 = (179, 255, 255)
+THRESHOLD_LOW_R2 = (171, 70, 50)
+THRESHOLD_HIGH_R2 = (178, 255, 255)
 
 # HSV color threshold for GREEN
 THRESHOLD_LOW_G = (45, 100, 50)
 THRESHOLD_HIGH_G= (75, 255, 255)
 
 # Minimum required radius of enclosing circle of contour
-MIN_RADIUS = 30
+MIN_RADIUS = 10
 
 # Initialize camera
 cam = cv2.VideoCapture(0)
@@ -58,12 +58,14 @@ while True:
                 center = None
 
     # Print out the location and size (radius) of the largest detected contour
-    #if center != None:
-        #print str(center) + " " + str(radius)
-
-    # Draw a green circle
     if center != None:
+        # Draw a green circle
         cv2.circle(img, center, int(round(radius)), (0, 255, 0))
+        size = radius * 2
+        distance = 70 * 41 / size
+
+        print str(center) + "       " + str(size) + "       " + str(distance)
+
 
     # Show image windows
     cv2.imshow('webcam', img)
