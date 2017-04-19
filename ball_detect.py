@@ -2,11 +2,11 @@ import numpy as np
 import cv2
 
 # HSV color thresholds for RED
-THRESHOLD_LOW_R1 = (0, 70, 50)
+THRESHOLD_LOW_R1 = (0, 170, 50)
 THRESHOLD_HIGH_R1 = (4, 255, 255)
 
 # HSV color thresholds for RED
-THRESHOLD_LOW_R2 = (171, 70, 50)
+THRESHOLD_LOW_R2 = (171, 170, 50)
 THRESHOLD_HIGH_R2 = (178, 255, 255)
 
 # HSV color threshold for GREEN
@@ -64,7 +64,7 @@ while True:
         size = radius * 2
         distance = 70 * 41 / size
 
-        print str(center) + "       " + str(size) + "       " + str(distance)
+        print str(center) + "      " + str(distance)
 
 
     # Show image windows
